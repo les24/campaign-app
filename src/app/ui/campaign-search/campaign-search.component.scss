@@ -17,12 +17,12 @@
   }
 
   &-field {
-      width: 80%;
+      width: 100%;
     }
 }
 
 @media (orientation: portrait) {
-    .form-container {
+    .search-input-container {
       width: 100%;
     }
 
