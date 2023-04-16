@@ -1,0 +1,32 @@
+.campaign-app-toolbar {
+  background: linear-gradient(45deg, rgb(126, 75, 244), rgb(240, 223, 252));
+  color: white;
+  min-height: 70px;
+}
+
+.search-input {
+
+  &-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  max-width: 800px;
+  margin: auto;
+  padding-top: 5px;
+  }
+
+  &-field {
+      width: 80%;
+    }
+}
+
+@media (orientation: portrait) {
+    .form-container {
+      width: 100%;
+    }
+
+    .campaign-label {
+      display: none;
+    }
+}

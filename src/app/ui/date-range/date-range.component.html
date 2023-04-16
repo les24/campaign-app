@@ -1,0 +1,33 @@
+<mat-toolbar color="secondary" class="form-container">
+  <div class="left-container">
+    <button mat-icon-button (click)="toggleDatePicker()">
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    <div class="date-range-chips" *ngIf="selectedDateRange">
+      <mat-chip>
+        {{ selectedDateRange }}
+        <mat-icon matChipRemove (click)="clear()">cancel</mat-icon>
+      </mat-chip>
+    </div>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="dateRangeForm" class="filter-form" *ngIf="showForm">
+      <div class="date-picker-container">
+        <mat-form-field>
+          <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date"  formControlName="startDate" (dateChange)="startDateSelected($event)">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker" ></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" formControlName="endDate" (dateChange)="endDateSelected($event)">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="filter-clear-container">
+        <button mat-button class="filter-button" (click)="filter()">filter</button>
+        <button mat-button class="clear-button" (click)="clear()">clear</button>
+      </div>
+    </form>
+  </div>
+</mat-toolbar>

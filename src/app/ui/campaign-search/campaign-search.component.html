@@ -1,0 +1,16 @@
+<mat-toolbar class="campaign-app-toolbar">
+  <mat-label>Campaigns</mat-label>
+  <div class="search-input-container">
+     <mat-form-field class="search-input-field" appearance="outline">
+        <input
+        matInput
+        #searchInput
+        type="text"
+        placeholder="Search campaigns"
+        (keyup)="onSearch(searchInput.value)"
+        />
+        <mat-icon matPrefix>search</mat-icon>
+     </mat-form-field>
+  </div>
+</mat-toolbar>
+
