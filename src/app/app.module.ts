@@ -46,7 +46,6 @@ import { MatChipsModule } from "@angular/material/chips"
     BrowserAnimationsModule,
     MatSnackBarModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatNativeDateModule,
     MatFormFieldModule,
     MatDatepickerModule,

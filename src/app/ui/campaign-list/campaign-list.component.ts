@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable } from '@angular/material/table';
 import { CampaignListDataSource } from './campaign-list-datasource';
@@ -24,20 +24,18 @@ export class CampaignListComponent implements AfterViewInit {
 
   constructor(
     campaignListDataSource: CampaignListDataSource,
-    matIconRegistry: MatIconRegistry,
-    domSanitizer: DomSanitizer,
     window: WindowRefService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+
     private service: CampaignListService,
     private changeDetectorRef: ChangeDetectorRef,
   ) {
     this.dataSource = campaignListDataSource;
-
-    matIconRegistry.addSvgIcon('check-circle', domSanitizer.bypassSecurityTrustResourceUrl('/assets/icons/check-circle.svg'));
-    matIconRegistry.addSvgIcon('cancel-circle', domSanitizer.bypassSecurityTrustResourceUrl('/assets/icons/cancel-circle.svg'));
-
     window.nativeWindow.addCampaigns = (campaigns: Campaign[]) => {
       this.addCampaigns(campaigns);
     };
+    this.registerIcons();
   }
 
   ngAfterViewInit(): void {
@@ -62,6 +60,11 @@ export class CampaignListComponent implements AfterViewInit {
 
   addCampaigns(campaigns: Campaign[]) {
     this.service.addCampaigns(campaigns);
+  }
+
+  registerIcons(): void {
+    this.matIconRegistry.addSvgIcon('check-circle', this.domSanitizer.bypassSecurityTrustResourceUrl('/assets/icons/check-circle.svg'));
+    this.matIconRegistry.addSvgIcon('cancel-circle', this.domSanitizer.bypassSecurityTrustResourceUrl('/assets/icons/cancel-circle.svg'));
   }
 
 }
