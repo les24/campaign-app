@@ -1,6 +1,8 @@
 # Demo Site 
 
-[Click to Visit demo site ](https://les24.github.io/)
+[Click to visit demo site ](https://les24.github.io/)
+
+This Angular app demonstrates the use NgRx for a managed and centralized state. While this app is not particularly large, I chose to use NgRx to showcase its capabilities and benefits in managing complex application states. It's worth noting that for smaller applications, storing data in services may be sufficent.
 
 # CampaignApp
 
